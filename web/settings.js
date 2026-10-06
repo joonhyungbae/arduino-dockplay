@@ -18,7 +18,7 @@ export const PARAMS = [
   { key: "usePir", label: "동작 센서도 쓰기", type: "check", value: true },
   // 사람이 안 보인 뒤 이만큼 지나야 떠난 것으로 본다. 짧으면 가만히 선 사람도 떠난 것이 된다
   { key: "leaveSec", label: "떠났다고 볼 때까지(초)", min: 1, max: 30, step: 1, value: 6 },
-  // 파도 장치 모터의 세기
+  // 모터의 세기
   { key: "motor", label: "모터 세기", min: 0, max: 1, step: 0.05, value: 0.7 },
   // 영상이 도는 동안에도 모터를 돌릴지
   { key: "motorInPlay", label: "영상 중에도 모터", type: "check", value: true },
