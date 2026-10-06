@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+out.mp4
+out.webm
+
+# 작가의 영상은 커밋하지 않는다. 목록(media.json)은 start 가 켤 때마다 만든다.
+web/media/idle/*
+web/media/play/*
+!web/media/idle/.keep
+!web/media/play/.keep
+web/media/media.json

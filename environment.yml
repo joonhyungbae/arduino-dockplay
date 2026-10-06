@@ -1,0 +1,10 @@
+# conda 환경. ./install.sh 가 이 파일로 만들고, ./start.sh 가 이 환경으로 켠다.
+# 흐름과 영상은 브라우저가 한다. 파이썬은 웹 서버와, 아두이노와 주고받는 데만 쓴다.
+name: dockplay
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - pyserial>=3.5      # 아두이노의 센서 값을 받고 모터 세기를 보낸다. 없어도 화면은 돈다

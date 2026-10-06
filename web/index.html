@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>내려놓으면 시작되는 영상</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%2390b8c0'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <div class="left">
+    <div id="stage"><canvas id="out"></canvas></div>
+    <div class="bar">
+      <button id="b-near">사람 다가옴</button>
+      <button id="b-lift">헤드셋 듦</button>
+      <button id="only">영상만</button>
+      <span class="fps" id="fps"></span>
+    </div>
+  </div>
+
+  <aside>
+    <div class="card">
+      <h2>무엇으로 읽나</h2>
+      <select id="source">
+        <option value="board">아두이노</option>
+        <option value="hand">화면의 단추</option>
+        <option value="sim">가짜 관객 (저절로)</option>
+      </select>
+      <div id="status">여는 중</div>
+    </div>
+
+    <div class="card">
+      <h2>센서</h2>
+      <div class="row"><span>동작 센서</span><output id="r-pir"></output><em id="d-pir"></em></div>
+      <div class="row"><span>거리</span><output id="r-cm"></output><em id="d-cm"></em></div>
+      <div class="row"><span>리드 스위치</span><output id="r-reed"></output><em id="d-reed"></em></div>
+      <div class="row"><span>무게</span><output id="r-load"></output><em id="d-load"></em></div>
+      <div class="row"><span>반사 적외선</span><output id="r-ir"></output><em id="d-ir"></em></div>
+      <canvas id="trace" height="90"></canvas>
+      <div class="hint">아래 그래프는 최근 20초. 위에서부터 사람, 리드, 무게, 적외선의 판단입니다.</div>
+    </div>
+
+    <div class="card">
+      <h2>거치대 맞추기 (무게 · 적외선)</h2>
+      <div class="pair">
+        <button id="c-empty">비었을 때 재기</button>
+        <button id="c-full">헤드셋 올리고 재기</button>
+      </div>
+      <div class="hint" id="calib"></div>
+    </div>
+
+    <div class="card">
+      <h2>흐름 (순서는 web/flow.js)</h2>
+      <div class="state" id="state"></div>
+      <div class="meter"><span>모터</span><i><b id="m-motor"></b></i><output id="v-motor"></output></div>
+      <div class="hint" id="wire"></div>
+      <ol class="log" id="log"></ol>
+    </div>
+
+    <div class="card">
+      <h2>조절</h2>
+      <div id="params"></div>
+      <button id="reset" style="margin-top:6px">처음 값으로</button>
+    </div>
+
+    <div class="card keys">
+      N 사람 다가옴 · 스페이스 헤드셋 듦/놓음 · H 조절판 숨기기 · F 전체 화면<br />
+      조절한 값과 거치대 맞춘 값은 이 브라우저에 남습니다.
+    </div>
+  </aside>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
